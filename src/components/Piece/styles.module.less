@@ -1,0 +1,28 @@
+.white,
+.black,
+.transparent {
+  border-radius: 50%;
+  position: absolute;
+  left: calc(calc(var(--piece-medium-size) / 2 * -1));
+  top: calc(calc(var(--piece-medium-size) / 2 * -1));
+}
+
+.white {
+  background: radial-gradient(15px 15px at 15px 15px, #fff, #e2e2e2);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.black {
+  background: radial-gradient(10px 10px at 15px 15px, #fff, #333);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.small {
+  width: var(--piece-small-size);
+  height: var(--piece-small-size);
+}
+
+.medium {
+  width: var(--piece-medium-size);
+  height: var(--piece-medium-size);
+}
