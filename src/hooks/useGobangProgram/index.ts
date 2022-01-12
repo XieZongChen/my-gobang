@@ -113,18 +113,39 @@ export function useGobangProgram({ handleVictoryMsg }: UseProp) {
   // 点击悔棋事件
   function handleGoBack() {
     if (stepsRef.value.length) {
-      const step = stepsRef.value.pop();
-      boardRef.value[step!.position[0]][step!.position[1]] = 0;
-      regretsRef.value.push(step as StepsItem);
+      // 人机对战情况需要一次退两步
+      if (isOpenAIRef.value){
+        const lastStep = stepsRef.value.pop();
+        const beforeLastStep = stepsRef.value.pop();
+        boardRef.value[lastStep!.position[0]][lastStep!.position[1]] = 0;
+        boardRef.value[beforeLastStep!.position[0]][beforeLastStep!.position[1]] = 0;
+        regretsRef.value.push(lastStep as StepsItem);
+        regretsRef.value.push(beforeLastStep as StepsItem);
+      }else {
+        const step = stepsRef.value.pop();
+        boardRef.value[step!.position[0]][step!.position[1]] = 0;
+        regretsRef.value.push(step as StepsItem);
+      }
+      
     }
   }
 
   // 点击撤销悔棋事件
   function handleReGoBack() {
     if (regretsRef.value.length) {
-      const step = regretsRef.value.pop();
-      boardRef.value[step!.position[0]][step!.position[1]] = step!.theme;
-      stepsRef.value.push(step as StepsItem);
+      // 人机对战情况需要一次退两步
+      if(isOpenAIRef.value){
+        const lastStep = regretsRef.value.pop();
+        const beforeLastStep = regretsRef.value.pop();
+        boardRef.value[lastStep!.position[0]][lastStep!.position[1]] = lastStep!.theme;
+        boardRef.value[beforeLastStep!.position[0]][beforeLastStep!.position[1]] = beforeLastStep!.theme;
+        stepsRef.value.push(lastStep as StepsItem);
+        stepsRef.value.push(beforeLastStep as StepsItem);
+      } else {
+        const step = regretsRef.value.pop();
+        boardRef.value[step!.position[0]][step!.position[1]] = step!.theme;
+        stepsRef.value.push(step as StepsItem);
+      }
     }
   }
 
@@ -134,7 +155,7 @@ export function useGobangProgram({ handleVictoryMsg }: UseProp) {
     // 已分出结果 或 总步数小于9 不进行查找5连子
     if (isEndRef.value || stepsRef.value.length < 9) return false;
     const lastStep = stepsRef.value[stepsRef.value.length - 1];
-    const { result, direction } = hasNum(
+    const { result } = hasNum(
       lastStep.position,
       lastStep.theme,
       5,
@@ -149,8 +170,10 @@ export function useGobangProgram({ handleVictoryMsg }: UseProp) {
 
   // 人机程序
   watchEffect(() => {
+    // 对局结束不执行
+    if (isEndRef.value) return
     // 判断如果玩家先手则跳过
-    if(!stepsRef.value.length && !isAIFirstRef.value) return
+    if (!stepsRef.value.length && !isAIFirstRef.value) return;
     // 人机情况且电脑执棋才会执行
     if (isOpenAIRef.value && aiThemeRef.value === nowThemeRef.value) {
       nextTick(() => {

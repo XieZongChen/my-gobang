@@ -11,7 +11,7 @@ export function findEmptySeat(
   row: number,
   col: number,
   direction: string,
-  board: number[][]
+  board: PieceTheme[][]
 ) {
   if (direction === 'upAndDown') {
     if (board[row + 1][col] === PieceTheme.transparent) {
