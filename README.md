@@ -1,5 +1,8 @@
 # 五子棋游戏
 
+## 体验地址
+
+[my-gobang](https://amadeus711.github.io/my-gobang/)
 
 ## 功能
 1. 点击棋盘直接开始人-人对战
