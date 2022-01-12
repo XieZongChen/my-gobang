@@ -74,10 +74,6 @@ export function hasNum(
     }
     leftAndUp++;
   }
-  console.log('upAndDown', upAndDown);
-  console.log('leftAndRight', leftAndRight);
-  console.log('leftAndUp', leftAndUp);
-  console.log('rightAndUp', rightAndUp);
 
   if (upAndDown >= num) {
     return { result: true, direction: 'upAndDown' };

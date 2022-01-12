@@ -16,7 +16,7 @@ export function useGobangProgram({ handleVictoryMsg }: UseProp) {
 
   // 电脑棋子颜色
   const aiThemeRef = computed(() =>
-    isAIFirstRef ? PieceTheme.black : PieceTheme.white
+    isAIFirstRef.value ? PieceTheme.black : PieceTheme.white
   );
 
   // 是否结束（认输和胜利都意味结束，结束状态下棋盘不清空）
@@ -90,6 +90,7 @@ export function useGobangProgram({ handleVictoryMsg }: UseProp) {
           },
           onClose: () => {
             isOpenAIRef.value = true;
+            isAIFirstRef.value = false;
             firstConfirmDia.hide?.();
           },
         });
@@ -139,8 +140,6 @@ export function useGobangProgram({ handleVictoryMsg }: UseProp) {
       5,
       boardRef.value
     );
-    console.log('result', result);
-    console.log('leftAndRight', direction);
 
     if (result) {
       // 如果找到5连子，自动认输
@@ -150,6 +149,8 @@ export function useGobangProgram({ handleVictoryMsg }: UseProp) {
 
   // 人机程序
   watchEffect(() => {
+    // 判断如果玩家先手则跳过
+    if(!stepsRef.value.length && !isAIFirstRef.value) return
     // 人机情况且电脑执棋才会执行
     if (isOpenAIRef.value && aiThemeRef.value === nowThemeRef.value) {
       nextTick(() => {
