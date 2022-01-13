@@ -74,14 +74,14 @@ export function useGobangProgram({ handleVictoryMsg }: UseProp) {
       body: '是否人机对战',
       confirmBtn: '确定',
       cancelBtn: '取消',
-      onConfirm: ({ e }) => {
+      onConfirm: () => {
         aiConfirmDia.hide?.();
         const firstConfirmDia = DialogPlugin.confirm({
           header: '游戏设置',
           body: '是否电脑先手',
           confirmBtn: '确定',
           cancelBtn: '取消',
-          onConfirm: ({ e }) => {
+          onConfirm: () => {
             isOpenAIRef.value = true;
             isAIFirstRef.value = true;
             // 如果是人机对战并且电脑先手，需要让电脑先走一步

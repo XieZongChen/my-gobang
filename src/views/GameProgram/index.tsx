@@ -60,7 +60,26 @@ export default defineComponent({
     const { steps, isEnd } = this;
     return (
       <t-layout class={styles.layout}>
-        <t-header class={styles.header}>五子棋游戏</t-header>
+        <t-header class={styles.header}>
+          <div>五子棋游戏</div>
+          <t-tooltip placement='bottom' show-arrow={false}>
+            {{
+              default: () => <t-icon name='help-circle' size='18px' />,
+              content: () => (
+                <per>
+                  1. 点击棋盘直接开始人-人对战
+                  <br /> 2. 点击设置可以进行人-机对战
+                  <br /> 3. 对战时，[认输] 可直接进入对战结束状态
+                  <br /> 4. 对战时，[上一步] 为悔棋
+                  <br /> 5. 对战时，[下一步]
+                  为撤销悔棋，当在悔棋后又走一步，则撤销悔棋失效
+                  <br /> 6. 对战结束后，[上一步]、[下一步] 可以回看本局对战情况
+                  <br /> 7. 对战结束后，点击 [清盘] 可清除对局
+                </per>
+              ),
+            }}
+          </t-tooltip>
+        </t-header>
         <t-content class={styles.content}>
           <Gobang
             board={this.board}
