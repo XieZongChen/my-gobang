@@ -117,13 +117,13 @@ export function useGobangProgram({ handleVictoryMsg }: UseProp) {
       if (isOpenAIRef.value){
         const lastStep = stepsRef.value.pop();
         const beforeLastStep = stepsRef.value.pop();
-        boardRef.value[lastStep!.position[0]][lastStep!.position[1]] = 0;
-        boardRef.value[beforeLastStep!.position[0]][beforeLastStep!.position[1]] = 0;
+        boardRef.value[lastStep!.position[0]][lastStep!.position[1]] = PieceTheme.transparent;
+        boardRef.value[beforeLastStep!.position[0]][beforeLastStep!.position[1]] = PieceTheme.transparent;
         regretsRef.value.push(lastStep as StepsItem);
         regretsRef.value.push(beforeLastStep as StepsItem);
       }else {
         const step = stepsRef.value.pop();
-        boardRef.value[step!.position[0]][step!.position[1]] = 0;
+        boardRef.value[step!.position[0]][step!.position[1]] = PieceTheme.transparent;
         regretsRef.value.push(step as StepsItem);
       }
       
