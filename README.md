@@ -21,16 +21,17 @@
 │   ├── assets               # 静态资源
 │   ├── components           # 共用组件
 │   │   ├── Checkerboard     # 棋盘组件 
-│   │   └── hasNum           # 棋子组件
+│   │   └── Piece            # 棋子组件
 │   ├── hooks
 │   │   └── useGobangProgram # 程序主逻辑
 │   ├── utils   
-│   │   ├── ai               # 电脑决策算法 
+│   │   ├── ai               # 电脑决策算法
+│   │   ├── findEmptySeat    # 寻找空位算法 
 │   │   └── hasNum           # 对局判胜算法
 │   ├── views
 │   │   ├── GameProgram      # 游戏界面 
 │   │   ├── Gobang           # 五子棋整合界面 
-│   │   └── Piece            # 显示与操作面板
+│   └── └── Panel            # 显示与操作面板
 ├── README.md
 └── package.json
 ```
