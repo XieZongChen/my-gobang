@@ -59,7 +59,7 @@ export default defineComponent({
   render() {
     const { steps, isEnd } = this;
     return (
-      <t-layout class={styles.layout}>
+      <t-layout>
         <t-header class={styles.header}>
           <div>五子棋游戏</div>
           <t-tooltip placement='bottom' show-arrow={false}>
