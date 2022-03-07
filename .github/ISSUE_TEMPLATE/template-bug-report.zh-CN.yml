@@ -25,7 +25,7 @@ body:
     id: systemVersion
     attributes:
       label: 框架版本
-      placeholder: 如 Vue(3.2.0)
+      placeholder: Vue(3.2.0)
     validations:
       required: true
 
