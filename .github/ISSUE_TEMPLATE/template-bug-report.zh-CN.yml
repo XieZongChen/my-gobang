@@ -5,9 +5,9 @@ body:
   - type: markdown
     attributes:
       value: |
-        欢迎你的参与
+        # 欢迎你的参与
         TDesign 的 Issue 列表接受 bug 报告或是新功能请求。
-        也可加入官方社区：<img width="144px" src="https://github.com/amadeus711/my-gobang/tree/main/.github/ISSUE_TEMPLATE/TDesign-IM.png" />
+        也可加入官方社区：<img width="144px" src="https://github.com/amadeus711/my-gobang/blob/main/.github/ISSUE_TEMPLATE/TDesign-IM.png" />
 
         <hr/>
 
