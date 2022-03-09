@@ -6,7 +6,7 @@ body:
     attributes:
       value: |
         # 欢迎你的参与
-        TDesign 的 Issue 列表接受 bug 报告或是新功能请求。也可加入官方社区：[微信群](https://github.com/amadeus711/my-gobang/blob/main/.github/ISSUE_TEMPLATE/TDesign-IM.png)
+        TDesign 的 Issue 列表接受 bug 报告或是新功能请求。也可加入官方社区：<img width="144px" src="https://github.com/amadeus711/my-gobang/blob/main/.github/ISSUE_TEMPLATE/TDesign-IM.png" />
 
         在发布一个 Issue 前，请确保：
         - 在 [常见问题](https://tdesign.tencent.com/about/faq)、[更新日志](https://github.com/Tencent/tdesign/blob/main/CHANGELOG.md) 和 [旧Issue列表](https://github.com/Tencent/tdesign/issues?q=is%3Aissue) 中搜索过你的问题。（你的问题可能已有人提出，也可能已在最新版本中被修正）
@@ -20,28 +20,6 @@ body:
       placeholder: 请填写
     validations:
       required: true
-
-  - type: input
-    id: systemVersion
-    attributes:
-      label: 框架版本
-      placeholder: Vue(3.2.0)
-    validations:
-      required: true
-
-  - type: input
-    id: browsersVersion
-    attributes:
-      label: 系统、浏览器
-      placeholder: MacOS(11.2.3)、Chrome(8.213.231.123)
-    validations:
-      required: true
-
-  - type: input
-    id: nodeVersion
-    attributes:
-      label: Node版本
-      placeholder: 请填写
 
   - type: input
     id: reproduce
@@ -76,6 +54,24 @@ body:
       placeholder: 请填写
     validations:
       required: true
+
+  - type: input
+    id: systemVersion
+    attributes:
+      label: 框架版本
+      placeholder: Vue(3.2.0)
+
+  - type: input
+    id: browsersVersion
+    attributes:
+      label: 系统、浏览器
+      placeholder: MacOS(11.2.3)、Chrome(8.213.231.123)
+
+  - type: input
+    id: nodeVersion
+    attributes:
+      label: Node版本
+      placeholder: 请填写
 
   - type: textarea
     id: remarks
