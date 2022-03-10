@@ -1,5 +1,0 @@
-blank_issues_enabled: true
-contact_links:
-  - name: 新建 issue
-    url: https://Tencent.github.io/tdesign/issue-helper/?lang=zh-CN&repo=Tencent/tdesign
-    about: 使用 https://Tencent.github.io/tdesign/issue-helper/ 创建 issue，其中包含 bug 或 feature。
