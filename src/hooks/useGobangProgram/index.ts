@@ -45,6 +45,7 @@ export function useGobangProgram({ handleVictoryMsg }: UseProp) {
   //**--------------------------------- 事件区域 ------------------------------------**/
   // 点击棋子事件
   function handleClickPiece(row: number, col: number) {
+    if(boardRef.value[row][col] !== PieceTheme.transparent) return
     boardRef.value[row][col] = nowThemeRef.value;
     stepsRef.value.push({
       position: [row, col],
